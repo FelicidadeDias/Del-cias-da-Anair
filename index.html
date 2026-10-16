@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#080808">
+
+    <meta
+        name="description"
+        content="Delícias da Anair. Descubra as nossas Magogas, Franguité e Mini Churrasco. Consulte o cardápio e faça o seu pedido pelo WhatsApp."
+    >
+
+    <title>Delícias da Anair | Cardápio Digital</title>
+
+    <style>
+        :root {
+            --preto: #080808;
+            --preto-suave: #111111;
+            --preto-card: #171717;
+            --dourado: #d5ad55;
+            --dourado-claro: #f2d995;
+            --branco: #ffffff;
+            --cinza: #bdbdbd;
+            --verde: #25d366;
+            --borda: rgba(213, 173, 85, 0.28);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            background: var(--preto);
+            color: var(--branco);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: 0 auto;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            background: rgba(8, 8, 8, 0.97);
+            border-bottom: 1px solid var(--borda);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand img {
+            width: 53px;
+            height: 53px;
+            object-fit: contain;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            color: var(--dourado-claro);
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            display: block;
+            color: var(--cinza);
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #eeeeee;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dourado-claro);
+        }
+
+        .nav-order {
+            background: var(--dourado);
+            color: #111 !important;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* DESTAQUE PRINCIPAL */
+
+        .hero {
+            min-height: 550px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 45px;
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--dourado-claro);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 17px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.08;
+            font-weight: normal;
+            margin-bottom: 23px;
+        }
+
+        .hero h1 span {
+            color: var(--dourado);
+        }
+
+        .hero-description {
+            color: var(--cinza);
+            max-width: 490px;
+            font-size: 16px;
+            margin-bottom: 29px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid transparent;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: var(--dourado);
+            color: #111111;
+        }
+
+        .btn-outline {
+            border-color: var(--dourado);
+            color: var(--dourado-claro);
+            background: transparent;
+        }
+
+        .hero-image {
+            position: relative;
+            max-width: 480px;
+            width: 100%;
+            justify-self: end;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 410px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--borda);
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 12px -12px -12px 12px;
+            border: 1px solid var(--dourado);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .hero-caption {
+            background: var(--preto-card);
+            border: 1px solid var(--borda);
+            padding: 13px 17px;
+            margin-top: 15px;
+            border-radius: 5px;
+            text-align: center;
+            color: var(--dourado-claro);
+            font-family: Georgia, serif;
+            font-size: 16px;
+        }
+
+        /* BENEFÍCIOS */
+
+        .highlights {
+            background: #101010;
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .highlight {
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .highlight + .highlight {
+            border-left: 1px solid var(--borda);
+        }
+
+        .highlight strong {
+            display: block;
+            color: var(--dourado-claro);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .highlight p {
+            color: var(--cinza);
+            font-size: 12px;
+        }
+
+        /* SECÇÕES */
+
+        section {
+            padding: 82px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 42px;
+        }
+
+        .section-heading .eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: normal;
+            margin-bottom: 13px;
+        }
+
+        .section-heading h2 span {
+            color: var(--dourado);
+        }
+
+        .section-heading p {
+            color: var(--cinza);
+            font-size: 14px;
+        }
+
+        /* PRODUTOS */
+
+        .menu-section {
+            background: var(--preto);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .menu-card {
+            background: var(--preto-card);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dourado);
+        }
+
+        .menu-card-image {
+            height: 220px;
+            background: #222;
+            overflow: hidden;
+        }
+
+        .menu-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .menu-card:hover .menu-card-image img {
+            transform: scale(1.04);
+        }
+
+        .menu-card-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .menu-card h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: var(--dourado-claro);
+            margin-bottom: 9px;
+        }
+
+        .menu-card p {
+            color: var(--cinza);
+            font-size: 13px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .menu-card-bottom {
+            border-top: 1px solid var(--borda);
+            padding-top: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .price {
+            color: var(--dourado-claro);
+            font-size: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .order-small {
+            display: inline-block;
+            background: var(--dourado);
+            color: #111;
+            padding: 9px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .menu-note {
+            text-align: center;
+            color: var(--cinza);
+            font-size: 12px;
+            margin-top: 27px;
+        }
+
+        /* GALERIA */
+
+        .gallery-section {
+            background: #101010;
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            background: #222;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid var(--borda);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* CONTACTO */
+
+        .contact-section {
+            background: var(--preto);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .contact-card {
+            padding: 30px;
+            background: var(--preto-card);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+        }
+
+        .contact-card h3 {
+            color: var(--dourado-claro);
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 23px;
+        }
+
+        .contact-row {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.09);
+        }
+
+        .contact-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .contact-label {
+            color: var(--dourado);
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            color: var(--branco);
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card .btn {
+            margin-top: 23px;
+            width: 100%;
+        }
+
+        /* QR CODE */
+
+        .qr-card {
+            padding: 30px;
+            background: #111;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-card h3 {
+            font-family: Georgia, serif;
+            color: var(--dourado-claro);
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .qr-card p {
+            color: var(--cinza);
+            font-size: 13px;
+            margin-bottom: 22px;
+            max-width: 280px;
+        }
+
+        .qr-frame {
+            background: white;
+            padding: 12px;
+            border-radius: 5px;
+            width: 190px;
+            min-height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-frame img {
+            width: 166px;
+            height: 166px;
+            object-fit: contain;
+        }
+
+        .qr-caption {
+            font-size: 11px;
+            color: var(--cinza);
+            margin-top: 15px;
+        }
+
+        /* CHAMADA FINAL */
+
+        .final-cta {
+            background: linear-gradient(120deg, #17130a, #0a0a0a);
+            border-top: 1px solid var(--borda);
+            text-align: center;
+            padding: 65px 0;
+        }
+
+        .final-cta h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: normal;
+            margin-bottom: 13px;
+        }
+
+        .final-cta h2 span {
+            color: var(--dourado);
+        }
+
+        .final-cta p {
+            color: var(--cinza);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background: #050505;
+            border-top: 1px solid var(--borda);
+            padding: 27px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--cinza);
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: var(--dourado-claro);
+        }
+
+        .footer-location {
+            margin-top: 6px;
+        }
+
+        /* BOTÃO FLUTUANTE WHATSAPP */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 999;
+            background: var(--verde);
+            color: #07170c;
+            border-radius: 50px;
+            min-height: 52px;
+            padding: 0 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 5px 22px rgba(0,0,0,0.45);
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+        }
+
+        /* IMAGEM EM FALTA */
+
+        .image-missing {
+            display: none !important;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 13px;
+            }
+
+            .hero {
+                gap: 28px;
+            }
+
+            .hero-image img {
+                height: 350px;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 0.8fr;
+                gap: 18px;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 69px;
+            }
+
+            .brand img {
+                width: 43px;
+                height: 43px;
+            }
+
+            .brand-name {
+                font-size: 15px;
+            }
+
+            .brand-subtitle {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .nav-links a:nth-child(2) {
+                display: none;
+            }
+
+            .nav-order {
+                padding: 9px 10px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 47px;
+                padding-bottom: 48px;
+                gap: 36px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-image {
+                max-width: 440px;
+                justify-self: center;
+                width: calc(100% - 12px);
+            }
+
+            .hero-image img {
+                height: 320px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight {
+                padding: 17px 10px;
+            }
+
+            .highlight + .highlight {
+                border-left: none;
+                border-top: 1px solid var(--borda);
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .menu-card-image {
+                height: 245px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .gallery-item {
+                height: 175px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card,
+            .qr-card {
+                padding: 24px;
+            }
+
+            .whatsapp-float {
+                right: 12px;
+                bottom: 12px;
+                min-height: 48px;
+                padding: 0 14px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .brand {
+                gap: 7px;
+            }
+
+            .brand-name {
+                font-size: 13px;
+            }
+
+            .nav-links {
+                gap: 7px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .gallery-item {
+                height: 145px;
+            }
+
+            .menu-card-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+        <div class="container navbar">
+
+            <a href="#inicio" class="brand" aria-label="Delícias da Anair - Início">
+                <img
+                    src="images/log.png"
+                    alt="Logótipo Delícias da Anair"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="brand-name">
+                    Delícias da Anair
+                    <span class="brand-subtitle">Sabor caseiro, feito com amor</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="#inicio">Início</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contactos">Contactos</a>
+                <a
+                    href="#cardapio"
+                    class="nav-order"
+                >
+                    Ver cardápio
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- DESTAQUE PRINCIPAL -->
+
+        <section class="container hero" id="inicio">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    Bem-vindo à nossa cozinha
+                </span>
+
+                <h1>
+                    Sabor que<br>
+                    conquista.<br>
+                    <span>Qualidade que encanta.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Descubra as especialidades da Delícias da Anair.
+                    Escolha o seu prato favorito, consulte os preços
+                    e entre em contacto connosco para fazer o seu pedido.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#cardapio" class="btn btn-gold">
+                        Explorar cardápio
+                    </a>
+
+                    <a
+                        href="https://wa.me/244957554352"
+                        class="btn btn-outline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Contactar pelo WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="images/magoga.png"
+                    alt="Magoga da Delícias da Anair"
+                    onerror="this.onerror=null;this.src='images/IMG-20261014-WA0002.jpg'"
+                >
+
+                <div class="hero-caption">
+                    Delícias preparadas para si
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMAÇÕES RÁPIDAS -->
+
+        <div class="highlights">
+
+            <div class="container highlights-grid">
+
+                <div class="highlight">
+                    <strong>Especialidades da casa</strong>
+                    <p>Conheça os nossos pratos</p>
+                </div>
+
+                <div class="highlight">
+                    <strong>Pedidos pelo WhatsApp</strong>
+                    <p>Entre em contacto connosco</p>
+                </div>
+
+                <div class="highlight">
+                    <strong>Preços em Kwanzas</strong>
+                    <p>Consulte o nosso cardápio</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARDÁPIO -->
+
+        <section class="menu-section" id="cardapio">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        As nossas especialidades
+                    </span>
+
+                    <h2>
+                        O nosso <span>Cardápio</span>
+                    </h2>
+
+                    <p>
+                        Escolha a sua opção preferida e faça o seu pedido
+                        diretamente pelo WhatsApp.
+                    </p>
+
+                </div>
+
+
+                <div class="menu-grid">
+
+                    <!-- MAGOGA SIMPLES -->
+
+                    <article class="menu-card">
+
+                        <div class="menu-card-image">
+                            <img
+                                src="images/IMG-20261014-WA0006.jpg"
+                                alt="Magoga simples com frango e salada"
+                                loading="lazy"
+                            >
+                        </div>
+
+                        <div class="menu-card-content">
+
+                            <h3>Magoga Simples</h3>
+
+                            <p>
+                                Uma combinação de frango e salada,
+                                preparada para uma refeição saborosa.
+                            </p>
+
+                            <div class="menu-card-bottom">
+
+                                <span class="price">1.000 Kz</span>
+
+                                <a
+                                    class="order-small"
+                                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20uma%20Magoga%20Simples%20de%201.000%20Kz."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Fazer pedido
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MAGOGA COM BATATA E SALADA -->
+
+                    <article class="menu-card">
+
+                        <div class="menu-card-image">
+                            <img
+                                src="images/IMG-20261014-WA0002.jpg"
+                                alt="Prato com frango, batata e salada"
+                                loading="lazy"
+                            >
+                        </div>
+
+                        <div class="menu-card-content">
+
+                            <h3>Magoga Completa</h3>
+
+                            <p>
+                                Frango acompanhado de batata e salada,
+                                uma opção para apreciar bons sabores.
+                            </p>
+
+                            <div class="menu-card-bottom">
+
+                                <span class="price">1.300 Kz</span>
+
+                                <a
+                                    class="order-small"
+                                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20uma%20Magoga%20com%20frango%2C%20batata%20e%20salada%20de%201.300%20Kz."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Fazer pedido
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MAGOGA COM OVO -->
+
+                    <article class="menu-card">
+
+                        <div class="menu-card-image">
+                            <img
+                                src="images/IMG-20261009-WA0004.jpg"
+                                alt="Prato de frango com batata e acompanhamentos"
+                                loading="lazy"
+                            >
+                        </div>
+
+                        <div class="menu-card-content">
+
+                            <h3>Magoga com Ovo</h3>
+
+                            <p>
+                                Frango, batata e ovo, numa combinação
+                                pensada para uma refeição mais completa.
+                            </p>
+
+                            <div class="menu-card-bottom">
+
+                                <span class="price">1.500 Kz</span>
+
+                                <a
+                                    class="order-small"
+                                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20uma%20Magoga%20com%20frango%2C%20batata%20e%20ovo%20de%201.500%20Kz."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Fazer pedido
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- FRANGUITÉ -->
+
+                    <article class="menu-card">
+
+                        <div class="menu-card-image">
+                            <img
+                                src="images/IMG-20261014-WA0000.jpg"
+                                alt="Especialidade da casa"
+                                loading="lazy"
+                            >
+                        </div>
+
+                        <div class="menu-card-content">
+
+                            <h3>Franguité</h3>
+
+                            <p>
+                                Uma das especialidades da Delícias da Anair.
+                                Consulte-nos para fazer o seu pedido.
+                            </p>
+
+                            <div class="menu-card-bottom">
+
+                                <span class="price">3.000 Kz</span>
+
+                                <a
+                                    class="order-small"
+                                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20Franguit%C3%A9%20de%203.000%20Kz."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Fazer pedido
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MINI CHURRASCO -->
+
+                    <article class="menu-card">
+
+                        <div class="menu-card-image">
+                            <img
+                                src="images/IMG-20261009-WA0003.jpg"
+                                alt="Prato de churrasco com acompanhamentos"
+                                loading="lazy"
+                            >
+                        </div>
+
+                        <div class="menu-card-content">
+
+                            <h3>Mini Churrasco</h3>
+
+                            <p>
+                                Uma opção saborosa para quem aprecia
+                                uma boa refeição com churrasco.
+                            </p>
+
+                            <div class="menu-card-bottom">
+
+                                <span class="price">2.000 Kz</span>
+
+                                <a
+                                    class="order-small"
+                                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20Mini%20Churrasco%20de%202.000%20Kz."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Fazer pedido
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <p class="menu-note">
+                    Os pedidos são confirmados diretamente com o estabelecimento.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALERIA DE FOTOGRAFIAS -->
+
+        <section class="gallery-section" id="galeria">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        Os nossos pratos
+                    </span>
+
+                    <h2>
+                        Nosso <span>Cardápio</span>
+                    </h2>
+
+                    <p>
+                        Veja algumas fotografias dos alimentos e das
+                        especialidades da Delícias da Anair.
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0000.jpg"
+                            alt="Fotografia de uma especialidade da casa"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0001.jpg"
+                            alt="Prato preparado pela Delícias da Anair"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0002.jpg"
+                            alt="Prato com frango, batatas e salada"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0003 (1).jpg"
+                            alt="Refeição com frango e batatas"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0004.jpg"
+                            alt="Fotografia de uma refeição completa"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261014-WA0006.jpg"
+                            alt="Prato com frango e salada"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261009-WA0003.jpg"
+                            alt="Churrasco com acompanhamentos"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261009-WA0004.jpg"
+                            alt="Prato com batatas e frango"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="images/IMG-20261009-WA0007.jpg"
+                            alt="Outra especialidade da casa"
+                            loading="lazy"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACTOS E QR CODE -->
+
+        <section class="contact-section" id="contactos">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        Estamos à sua disposição
+                    </span>
+
+                    <h2>
+                        Faça o seu <span>Pedido</span>
+                    </h2>
+
+                    <p>
+                        Entre em contacto connosco para obter informações
+                        e confirmar o seu pedido.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <!-- CONTACTOS -->
+
+                    <div class="contact-card">
+
+                        <h3>Contactos e localização</h3>
+
+                        <div class="contact-row">
+
+                            <span class="contact-label">
+                                Estabelecimento
+                            </span>
+
+                            <span class="contact-value">
+                                Delícias da Anair
+                            </span>
+
+                        </div>
+
+                        <div class="contact-row">
+
+                            <span class="contact-label">
+                                WhatsApp
+                            </span>
+
+                            <a
+                                class="contact-value"
+                                href="https://wa.me/244957554352"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                +244 957 554 352
+                            </a>
+
+                        </div>
+
+                        <div class="contact-row">
+
+                            <span class="contact-label">
+                                Endereço
+                            </span>
+
+                            <span class="contact-value">
+                                Rua do Santo António, perto do Instituto ÍMPAR.
+                            </span>
+
+                        </div>
+
+                        <a
+                            class="btn btn-gold"
+                            href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20visitei%20o%20card%C3%A1pio%20digital%20da%20Del%C3%ADcias%20da%20Anair%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Contactar pelo WhatsApp
+                        </a>
+
+                    </div>
+
+
+                    <!-- QR CODE -->
+
+                    <div class="qr-card">
+
+                        <h3>O cardápio no seu telemóvel</h3>
+
+                        <p>
+                            Leia o código QR com a câmara do telemóvel
+                            para aceder ao nosso cardápio digital.
+                        </p>
+
+                        <div class="qr-frame">
+
+                            <img
+                                id="qrcode"
+                                src=""
+                                alt="Código QR para abrir o cardápio digital"
+                            >
+
+                        </div>
+
+                        <span class="qr-caption">
+                            Aponte a câmara para o código QR.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAMADA FINAL -->
+
+        <section class="final-cta">
+
+            <div class="container">
+
+                <h2>
+                    O seu próximo sabor favorito<br>
+                    <span>está à sua espera.</span>
+                </h2>
+
+                <p>
+                    Consulte as especialidades e faça o seu pedido.
+                </p>
+
+                <a
+                    href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20na%20Del%C3%ADcias%20da%20Anair."
+                    class="btn btn-gold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Fazer pedido agora
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span>
+                <strong>Delícias da Anair</strong>.
+                Todos os direitos reservados.
+            </p>
+
+            <p class="footer-location">
+                Rua do Santo António, perto do Instituto ÍMPAR.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BOTÃO FLUTUANTE -->
+
+    <a
+        href="https://wa.me/244957554352?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20o%20card%C3%A1pio%20da%20Del%C3%ADcias%20da%20Anair."
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar a Delícias da Anair pelo WhatsApp"
+    >
+        WhatsApp
+    </a>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+        /*
+         * CONFIGURAÇÃO DO CARDÁPIO
+         *
+         * Depois de publicar a página no GitHub Pages,
+         * substitua o endereço de exemplo pelo endereço real.
+         */
+
+        const MENU_URL =
+            "https://SEU-NOME.github.io/SEU-REPOSITORIO/";
+
+        // Ano automático no rodapé.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        /*
+         * QR CODE
+         *
+         * O QR Code só poderá abrir o cardápio correto
+         * depois de configurar o endereço público.
+         */
+
+        const qrImage = document.getElementById("qrcode");
+
+        const validMenuUrl =
+            MENU_URL.startsWith("https://") &&
+            !MENU_URL.includes("SEU-NOME") &&
+            !MENU_URL.includes("SEU-REPOSITORIO");
+
+        if (validMenuUrl) {
+
+            qrImage.src =
+                "https://api.qrserver.com/v1/create-qr-code/" +
+                "?size=220x220&data=" +
+                encodeURIComponent(MENU_URL);
+
+            qrImage.alt = "Código QR para abrir o cardápio digital";
+
+        } else {
+
+            qrImage.alt =
+                "Configure o endereço público do cardápio no código.";
+
+            qrImage.src =
+                "https://api.qrserver.com/v1/create-qr-code/" +
+                "?size=220x220&data=" +
+                encodeURIComponent("https://github.com/");
+
+        }
+
+    </script>
+
+</body>
+</html>
